@@ -11,8 +11,9 @@ body {
   font-family: 'Courier New', monospace;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 1rem;
 }
 
@@ -22,25 +23,45 @@ body {
   border: 4px solid #00ff41;
   box-shadow: 0 0 30px #00ff4133, inset 0 0 30px #00ff4111;
   width: 100%;
-  max-width: 520px;
-  image-rendering: pixelated;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #00ff41;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+nav a {
+  color: #00f0ff;
+  text-decoration: none;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: #00ff41;
+  text-shadow: 0 0 10px #00ff41;
 }
 
 h1 {
   text-align: center;
-  font-size: 2.8rem;
-  letter-spacing: 8px;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
   text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff4122;
   font-weight: normal;
   font-family: 'Courier New', monospace;
+  margin-bottom: 1.5rem;
   border-bottom: 2px solid #00ff41;
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-h1 span {
-  color: #00f0ff;
-  text-shadow: 0 0 20px #00f0ff;
 }
 
 .field {
@@ -49,55 +70,71 @@ h1 span {
 
 label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   color: #00f0ff;
-  margin-bottom: 0.3rem;
-  letter-spacing: 2px;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
   font-weight: bold;
 }
 
-input {
+input, select {
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.6rem;
   background: #111;
-  border: 3px solid #00ff41;
+  border: 2px solid #00ff41;
   color: #00ff41;
   font-family: 'Courier New', monospace;
-  font-size: 1rem;
+  font-size: 0.9rem;
   outline: none;
   transition: 0.15s;
-  image-rendering: pixelated;
 }
 
-input:focus {
+input:focus, select:focus {
   border-color: #00f0ff;
-  box-shadow: 0 0 20px #00f0ff55;
+  box-shadow: 0 0 15px #00f0ff55;
   background: #0a1a0a;
+}
+
+select option {
+  background: #0a0a0a;
+  color: #00ff41;
 }
 
 button {
   width: 100%;
-  padding: 1rem;
+  padding: 0.9rem;
   background: #00ff41;
   color: #0a0a0a;
   border: none;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
   font-family: 'Courier New', monospace;
-  margin-top: 0.5rem;
   transition: 0.15s;
-  box-shadow: 0 0 25px #00ff4166;
-  letter-spacing: 4px;
-  image-rendering: pixelated;
+  box-shadow: 0 0 20px #00ff4166;
+  letter-spacing: 2px;
+  margin-top: 0.3rem;
 }
 
 button:hover {
   background: #00f0ff;
-  box-shadow: 0 0 40px #00f0ffaa;
+  box-shadow: 0 0 35px #00f0ffaa;
   color: #000;
+}
+
+button#githubBtn {
+  background: #222;
+  color: #fff;
+  box-shadow: none;
+  border: 2px solid #555;
+}
+
+button#githubBtn:hover {
+  background: #333;
+  border-color: #00ff41;
+  box-shadow: 0 0 20px #00ff4133;
 }
 
 .toast {
@@ -114,12 +151,33 @@ button:hover {
   display: none;
 }
 
-/* Effet de pixels sur les bordures (simulation) */
-input, button, .container {
-  border-style: solid;
+.strength-bar {
+  display: inline-block;
+  width: 30px;
+  height: 4px;
+  background: #333;
+  transition: 0.3s;
 }
 
-/* Suppression du style "simulateur" */
-.subtitle {
-  display: none;
+.strength-bar.active {
+  background: #00ff41;
+}
+
+footer {
+  color: #444;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-align: center;
+  border-top: 1px solid #00ff4133;
+  padding-top: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+a {
+  color: #00f0ff;
+}
+
+a:hover {
+  color: #00ff41;
 }

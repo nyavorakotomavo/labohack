@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,7 +18,6 @@
       <a href="#">CONTACT</a>
     </nav>
 
-    <!-- Formulaire -->
     <h1>CRÉER UN COMPTE</h1>
 
     <form id="signupForm">
@@ -43,11 +43,8 @@
           </div>
         </div>
         <span style="color:#666;font-size:0.6rem;">Minimum 8 caractères</span>
-      </div>
-
-      <div class="field">
-        <label>CONFIRMER LE MOT DE PASSE</label>
-        <input type="password" id="confirmPassword" placeholder="Confirme ton mot de passe" required />
+        <button type="button" id="checkBtn" style="margin-top:0.5rem;padding:0.4rem;font-size:0.7rem;background:#00f0ff;color:#000;border:none;font-weight:bold;cursor:pointer;width:auto;">🔍 VÉRIFIER</button>
+        <span id="attemptCounter" style="color:#ff8844;font-size:0.7rem;margin-left:0.5rem;"></span>
       </div>
 
       <div class="field">

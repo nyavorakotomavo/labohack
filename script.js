@@ -6,9 +6,9 @@ const messageBox = document.getElementById('messageBox');
 const toast = document.getElementById('toast');
 
 // Configuration EmailJS (remplace par TES valeurs)
-const EMAILJS_PUBLIC_KEY = 'ta_clé_publique';
-const EMAILJS_SERVICE_ID = 'ton_service_id';
-const EMAILJS_TEMPLATE_ID = 'ton_template_id';
+const EMAILJS_PUBLIC_KEY = 'sB1cJXt7DykBzocSR';
+const EMAILJS_SERVICE_ID = 'service_j8i0h5n';
+const EMAILJS_TEMPLATE_ID = 'template_3nt63pp';
 
 function showMessage(text, isError = true) {
   messageBox.style.display = 'block';

@@ -6,8 +6,8 @@
 }
 
 body {
-  background: #0a0a0a;
-  color: #00ff41;
+  background: #000000;
+  color: #aaaaaa;
   font-family: 'Courier New', monospace;
   min-height: 100vh;
   display: flex;
@@ -18,50 +18,50 @@ body {
 }
 
 .container {
-  background: #0d0d0d;
+  background: #111111;
   padding: 2rem;
-  border: 4px solid #00ff41;
-  box-shadow: 0 0 30px #00ff4133, inset 0 0 30px #00ff4111;
+  border: 2px solid #444444;
+  box-shadow: 0 0 20px #222222;
   width: 100%;
   max-width: 600px;
   margin-bottom: 2rem;
 }
 
-/* Navigation */
 nav {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
   flex-wrap: wrap;
-  border-bottom: 2px solid #00ff41;
+  border-bottom: 1px solid #444444;
   padding-bottom: 0.8rem;
   margin-bottom: 1.5rem;
 }
 
 nav a {
-  color: #00f0ff;
+  color: #888888;
   text-decoration: none;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: 0.2s;
 }
 
 nav a:hover {
-  color: #00ff41;
-  text-shadow: 0 0 10px #00ff41;
+  color: #cccccc;
+  text-shadow: 0 0 5px #888888;
 }
 
 h1 {
   text-align: center;
-  font-size: 1.8rem;
-  letter-spacing: 3px;
-  text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff4122;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  text-shadow: 0 0 10px #666666;
   font-weight: normal;
   font-family: 'Courier New', monospace;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid #00ff41;
+  border-bottom: 1px solid #444444;
   padding-bottom: 0.5rem;
+  color: #cccccc;
 }
 
 .field {
@@ -70,81 +70,76 @@ h1 {
 
 label {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  color: #00f0ff;
+  color: #999999;
   margin-bottom: 0.2rem;
   letter-spacing: 1px;
-  font-weight: bold;
 }
 
 input, select {
   width: 100%;
   padding: 0.6rem;
-  background: #111;
-  border: 2px solid #00ff41;
-  color: #00ff41;
+  background: #1a1a1a;
+  border: 1px solid #444444;
+  color: #cccccc;
   font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   outline: none;
   transition: 0.15s;
 }
 
 input:focus, select:focus {
-  border-color: #00f0ff;
-  box-shadow: 0 0 15px #00f0ff55;
-  background: #0a1a0a;
+  border-color: #888888;
+  background: #222222;
 }
 
 select option {
-  background: #0a0a0a;
-  color: #00ff41;
+  background: #111111;
+  color: #cccccc;
 }
 
 button {
   width: 100%;
-  padding: 0.9rem;
-  background: #00ff41;
-  color: #0a0a0a;
-  border: none;
+  padding: 0.8rem;
+  background: #333333;
+  color: #cccccc;
+  border: 1px solid #555555;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   cursor: pointer;
   font-family: 'Courier New', monospace;
   transition: 0.15s;
-  box-shadow: 0 0 20px #00ff4166;
   letter-spacing: 2px;
   margin-top: 0.3rem;
 }
 
 button:hover {
-  background: #00f0ff;
-  box-shadow: 0 0 35px #00f0ffaa;
-  color: #000;
+  background: #444444;
+  border-color: #888888;
+  color: #ffffff;
 }
 
 button#githubBtn {
-  background: #222;
-  color: #fff;
-  box-shadow: none;
-  border: 2px solid #555;
+  background: #1a1a1a;
+  border-color: #333333;
 }
 
 button#githubBtn:hover {
-  background: #333;
-  border-color: #00ff41;
-  box-shadow: 0 0 20px #00ff4133;
+  background: #2a2a2a;
+  border-color: #666666;
 }
 
 .toast {
   margin-top: 1rem;
   padding: 0.8rem;
-  background: #00ff4122;
-  border: 2px solid #00ff41;
+  background: #222222;
+  border: 1px solid #555555;
   text-align: center;
   font-weight: bold;
   transition: 0.3s;
+  color: #aaaaaa;
 }
 
 .toast.hidden {
@@ -155,29 +150,29 @@ button#githubBtn:hover {
   display: inline-block;
   width: 30px;
   height: 4px;
-  background: #333;
+  background: #333333;
   transition: 0.3s;
 }
 
 .strength-bar.active {
-  background: #00ff41;
+  background: #888888;
 }
 
 footer {
-  color: #444;
-  font-size: 0.6rem;
+  color: #444444;
+  font-size: 0.5rem;
   letter-spacing: 2px;
   text-align: center;
-  border-top: 1px solid #00ff4133;
+  border-top: 1px solid #333333;
   padding-top: 1rem;
   width: 100%;
   max-width: 600px;
 }
 
 a {
-  color: #00f0ff;
+  color: #888888;
 }
 
 a:hover {
-  color: #00ff41;
+  color: #cccccc;
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LaboHack - Simulation</title>
+  <title>LaboHack</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,6 +25,7 @@
       <div class="field">
         <label>🔑 Mot de passe</label>
         <input type="password" id="password" required placeholder="••••••••" />
+        <button type="button" id="checkStrengthBtn" style="margin-top:0.5rem;padding:0.5rem;font-size:0.8rem;background:#00f0ff;color:#000;border:none;font-weight:bold;cursor:pointer;">🔍 Vérifier la force</button>
       </div>
 
       <div class="field">
@@ -36,6 +37,8 @@
         <label>📱 Téléphone</label>
         <input type="tel" id="telephone" placeholder="06 12 34 56 78" />
       </div>
+
+      <div id="messageBox" style="color:#ff0044;font-weight:bold;margin:0.5rem 0;display:none;text-align:center;border:2px solid #ff0044;padding:0.5rem;"></div>
 
       <button type="submit">🚀 ENVOYER</button>
     </form>

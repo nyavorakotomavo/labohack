@@ -1,29 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LaboHack - Inscription</title>
+  <title>LaboHack</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <!-- Navigation -->
     <nav>
       <a href="#">ACCUEIL</a>
-      <a href="#">À PROPOS</a>
-      <a href="#">FONCTIONNALITÉS</a>
+      <a href="#">A PROPOS</a>
+      <a href="#">FONCTIONNALITES</a>
       <a href="#">TARIFS</a>
       <a href="#">CONTACT</a>
     </nav>
 
-    <h1>CRÉER UN COMPTE</h1>
+    <h1>CREER UN COMPTE</h1>
 
     <form id="signupForm">
       <div class="field">
         <label>NOM D'UTILISATEUR</label>
-        <input type="text" id="username" placeholder="Choisis un nom d'utilisateur" required />
+        <input type="text" id="username" placeholder="Choisis un nom" required />
       </div>
 
       <div class="field">
@@ -33,30 +31,29 @@
 
       <div class="field">
         <label>MOT DE PASSE</label>
-        <input type="password" id="password" placeholder="••••••••" required />
+        <input type="password" id="password" placeholder="********" required />
         <div style="margin-top:0.3rem; display:flex; gap:1rem; align-items:center;">
-          <span id="strengthLabel" style="color:#666;font-size:0.7rem;">Force : —</span>
-          <div style="display:flex; gap:0.3rem;">
+          <span id="strengthLabel" style="color:#666666;font-size:0.65rem;">force : —</span>
+          <div style="display:flex; gap:0.2rem;">
             <span id="strengthBar1" class="strength-bar"></span>
             <span id="strengthBar2" class="strength-bar"></span>
             <span id="strengthBar3" class="strength-bar"></span>
           </div>
         </div>
-        <span style="color:#666;font-size:0.6rem;">Minimum 8 caractères</span>
-        <button type="button" id="checkBtn" style="margin-top:0.5rem;padding:0.4rem;font-size:0.7rem;background:#00f0ff;color:#000;border:none;font-weight:bold;cursor:pointer;width:auto;">🔍 VÉRIFIER</button>
-        <span id="attemptCounter" style="color:#ff8844;font-size:0.7rem;margin-left:0.5rem;"></span>
+        <button type="button" id="checkBtn" style="margin-top:0.4rem;padding:0.3rem 0.8rem;font-size:0.65rem;background:#2a2a2a;color:#aaaaaa;border:1px solid #555555;font-weight:bold;cursor:pointer;width:auto;">[ VERIFIER ]</button>
+        <span id="attemptCounter" style="color:#666666;font-size:0.6rem;margin-left:0.5rem;"></span>
       </div>
 
       <div class="field">
         <label>PAYS</label>
         <select id="country" required>
-          <option value="">Sélectionne ton pays</option>
+          <option value="">Selectionne ton pays</option>
           <option value="France">France</option>
           <option value="Belgique">Belgique</option>
           <option value="Suisse">Suisse</option>
           <option value="Canada">Canada</option>
-          <option value="Sénégal">Sénégal</option>
-          <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+          <option value="Senegal">Senegal</option>
+          <option value="Cote d'Ivoire">Cote d'Ivoire</option>
           <option value="Madagascar">Madagascar</option>
           <option value="Autre">Autre</option>
         </select>
@@ -65,33 +62,33 @@
       <div class="field">
         <label>SEXE</label>
         <div style="display:flex; gap:1.5rem; margin-top:0.3rem;">
-          <label><input type="radio" name="gender" value="Homme" required /> Homme</label>
-          <label><input type="radio" name="gender" value="Femme" /> Femme</label>
-          <label><input type="radio" name="gender" value="Autre" /> Autre</label>
+          <label style="color:#999999;font-size:0.7rem;"><input type="radio" name="gender" value="Homme" required /> Homme</label>
+          <label style="color:#999999;font-size:0.7rem;"><input type="radio" name="gender" value="Femme" /> Femme</label>
+          <label style="color:#999999;font-size:0.7rem;"><input type="radio" name="gender" value="Autre" /> Autre</label>
         </div>
       </div>
 
       <div class="field">
-        <label>COMPTE FACEBOOK OU ADRESSE E-MAIL</label>
-        <input type="text" id="social" placeholder="Ton nom d'utilisateur Facebook ou email" />
+        <label>COMPTE FACEBOOK OU EMAIL</label>
+        <input type="text" id="social" placeholder="Ton identifiant Facebook ou email" />
       </div>
 
-      <div class="field" style="margin:1rem 0;">
-        <label style="display:inline;">
+      <div class="field" style="margin:0.8rem 0;">
+        <label style="display:inline; font-size:0.6rem; color:#888888;">
           <input type="checkbox" id="terms" required />
-          J'accepte les conditions d'utilisation
+          j'accepte les conditions d'utilisation
         </label>
       </div>
 
       <button type="submit">S'INSCRIRE</button>
-      <div style="text-align:center; margin:0.5rem 0; color:#666;">OU</div>
-      <button type="button" id="githubBtn" style="background:#333; color:#fff; box-shadow:none;">S'INSCRIRE AVEC GITHUB</button>
-      <p style="text-align:center; color:#00f0ff; margin-top:1rem;">
-        Déjà un compte ? <a href="#" style="color:#00ff41; text-decoration:none;">Se connecter</a>
+      <div style="text-align:center; margin:0.5rem 0; color:#666666;">OU</div>
+      <button type="button" id="githubBtn" style="background:#1a1a1a; color:#aaaaaa; border-color:#333333;">S'INSCRIRE AVEC GITHUB</button>
+      <p style="text-align:center; color:#666666; margin-top:1rem; font-size:0.7rem;">
+        Deja un compte ? <a href="#" style="color:#888888; text-decoration:none;">Se connecter</a>
       </p>
     </form>
 
-    <div id="toast" class="toast hidden">✅ Données envoyées !</div>
+    <div id="toast" class="toast hidden">donnees envoyees</div>
   </div>
 
   <footer>

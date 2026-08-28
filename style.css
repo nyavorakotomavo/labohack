@@ -1,4 +1,10 @@
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+}
+
 body {
   background: #0a0a0a;
   color: #00ff41;
@@ -7,77 +13,113 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
+
 .container {
-  background: #111;
+  background: #0d0d0d;
   padding: 2rem;
-  border: 2px solid #00ff41;
-  box-shadow: 0 0 20px #00ff4133;
+  border: 4px solid #00ff41;
+  box-shadow: 0 0 30px #00ff4133, inset 0 0 30px #00ff4111;
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
+  image-rendering: pixelated;
 }
+
 h1 {
   text-align: center;
-  font-size: 2.5rem;
-  letter-spacing: 5px;
-  text-shadow: 0 0 10px #00ff41;
-}
-h1 span { color: #00f0ff; }
-.subtitle {
-  text-align: center;
-  color: #00f0ff;
+  font-size: 2.8rem;
+  letter-spacing: 8px;
+  text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff4122;
+  font-weight: normal;
+  font-family: 'Courier New', monospace;
+  border-bottom: 2px solid #00ff41;
+  padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  font-size: 0.9rem;
 }
+
+h1 span {
+  color: #00f0ff;
+  text-shadow: 0 0 20px #00f0ff;
+}
+
 .field {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
+
 label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   color: #00f0ff;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 2px;
+  font-weight: bold;
 }
+
 input {
   width: 100%;
-  padding: 0.6rem;
-  background: #1a1a1a;
-  border: 2px solid #00ff41;
+  padding: 0.7rem;
+  background: #111;
+  border: 3px solid #00ff41;
   color: #00ff41;
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
   outline: none;
+  transition: 0.15s;
+  image-rendering: pixelated;
 }
+
 input:focus {
   border-color: #00f0ff;
-  box-shadow: 0 0 10px #00f0ff55;
+  box-shadow: 0 0 20px #00f0ff55;
+  background: #0a1a0a;
 }
+
 button {
   width: 100%;
-  padding: 0.8rem;
+  padding: 1rem;
   background: #00ff41;
   color: #0a0a0a;
   border: none;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   cursor: pointer;
-  font-family: monospace;
+  font-family: 'Courier New', monospace;
   margin-top: 0.5rem;
-  transition: 0.2s;
-  box-shadow: 0 0 15px #00ff4166;
+  transition: 0.15s;
+  box-shadow: 0 0 25px #00ff4166;
+  letter-spacing: 4px;
+  image-rendering: pixelated;
 }
+
 button:hover {
   background: #00f0ff;
-  box-shadow: 0 0 25px #00f0ffaa;
+  box-shadow: 0 0 40px #00f0ffaa;
   color: #000;
 }
+
 .toast {
   margin-top: 1rem;
   padding: 0.8rem;
   background: #00ff4122;
-  border: 1px solid #00ff41;
+  border: 2px solid #00ff41;
   text-align: center;
+  font-weight: bold;
   transition: 0.3s;
 }
-.toast.hidden { display: none; }
+
+.toast.hidden {
+  display: none;
+}
+
+/* Effet de pixels sur les bordures (simulation) */
+input, button, .container {
+  border-style: solid;
+}
+
+/* Suppression du style "simulateur" */
+.subtitle {
+  display: none;
+}

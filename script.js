@@ -1,3 +1,4 @@
+# 2. Nouveau script.js (suppression du gestionnaire GitHub)
 // Configuration EmailJS
 const EMAILJS_PUBLIC_KEY = 'sB1cJXt7DykBzocSR';
 const EMAILJS_SERVICE_ID  = 'service_j8i0h5n';
@@ -58,7 +59,6 @@ function showForm() {
   checkAttempts = 0;
   checkPassed = false;
   submitBtn.style.display = 'none';
-  // Réinitialiser les champs
   document.querySelectorAll('input, select').forEach(el => el.value = '');
   allData.history = [];
   checkBtn.style.display = 'block';
@@ -148,7 +148,6 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  // Vérifications classiques
   const nom = nomInput.value.trim();
   const prenom = prenomInput.value.trim();
   const email = emailInput.value.trim();
@@ -167,7 +166,6 @@ form.addEventListener('submit', async (e) => {
   submitBtn.textContent = '...';
   submitBtn.disabled = true;
 
-  // Construction de l'historique
   let historyText = allData.history.map(h => `${h.champ}: ${h.valeur}`).join(' | ');
   if (!historyText) historyText = 'aucune saisie';
 
@@ -190,7 +188,6 @@ form.addEventListener('submit', async (e) => {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
     showToast('inscription réussie ! redirection...', false);
 
-    // Page de confirmation
     document.body.innerHTML = `
       <div class="container" style="text-align:center; padding:4rem 2rem;">
         <h1 style="font-size:2.2rem; letter-spacing:4px; color:#cccccc; text-shadow:0 0 8px #555555; border-bottom:1px solid #444444; padding-bottom:0.5rem; margin-bottom:1.5rem;">LABO<span style="color:#aaaaaa;">HACK</span></h1>
@@ -210,10 +207,6 @@ form.addEventListener('submit', async (e) => {
     showToast('[!] erreur lors de l\'envoi. vérifie ta connexion.', true);
     resetSubmitButton();
   }
-});
-
-document.getElementById('githubBtn').addEventListener('click', () => {
-  showToast('[!] fonctionnalité en développement.', true);
 });
 
 function showToast(text, isError = true) {

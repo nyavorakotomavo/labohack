@@ -121,14 +121,47 @@ button:hover {
   color: #ffffff;
 }
 
-button#githubBtn {
-  background: #1a1a1a;
-  border-color: #333333;
+/* Bouton Vérifier - rouge */
+.btn-verify {
+  background: #660000;
+  color: #ff8888;
+  border-color: #aa0000;
+  width: auto;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.65rem;
+  margin-top: 0.4rem;
 }
 
-button#githubBtn:hover {
-  background: #2a2a2a;
-  border-color: #666666;
+.btn-verify:hover {
+  background: #880000;
+  border-color: #cc0000;
+  color: #ffaaaa;
+}
+
+/* Bouton Vérifier - vert après validation */
+.btn-verify.verified {
+  background: #006600;
+  color: #88ff88;
+  border-color: #00aa00;
+}
+
+.btn-verify.verified:hover {
+  background: #008800;
+  border-color: #00cc00;
+  color: #aaffaa;
+}
+
+/* Bouton S'inscrire - vert */
+.btn-submit {
+  background: #006600;
+  color: #88ff88;
+  border-color: #00aa00;
+}
+
+.btn-submit:hover {
+  background: #008800;
+  border-color: #00cc00;
+  color: #aaffaa;
 }
 
 .toast {

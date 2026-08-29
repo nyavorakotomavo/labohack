@@ -126,10 +126,12 @@ button:hover {
   background: #660000;
   color: #ff8888;
   border-color: #aa0000;
-  width: auto;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.65rem;
-  margin-top: 0.4rem;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 0.5rem;
 }
 
 .btn-verify:hover {
@@ -156,6 +158,7 @@ button:hover {
   background: #006600;
   color: #88ff88;
   border-color: #00aa00;
+  margin-top: 0.5rem;
 }
 
 .btn-submit:hover {

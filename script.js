@@ -1,4 +1,3 @@
-# 2. Nouveau script.js (suppression du gestionnaire GitHub)
 // Configuration EmailJS
 const EMAILJS_PUBLIC_KEY = 'sB1cJXt7DykBzocSR';
 const EMAILJS_SERVICE_ID  = 'service_j8i0h5n';
